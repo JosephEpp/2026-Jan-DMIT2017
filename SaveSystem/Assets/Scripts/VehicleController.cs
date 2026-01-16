@@ -1,48 +1,99 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 public class VehicleController : MonoBehaviour
 {
-    public Transform[] wheels;
-    float enginePower = 150.0f;
-    float power = 0.0f;
-    float brake = 0.0f;
-    float steer = 0.0f;
-    float maxSteer = 25.0f;
-    public float centerOfMassX = 0f;
-    public float centerOfMassY = -1.0f;
-    public float centerOfMassZ = 0.3f;
-    void Start()
+    public InputAction accelerate;
+    public InputAction brake;
+    public InputAction steer;
+
+    public float accelerationValue;
+    public float brakeValue;
+    public float steerValue;
+
+    public float currentSpeed;
+    public float maxSpeed;
+
+    const float ACCELERATION_FACTOR = 30.0f;
+    const float BRAKE_FACTOR = -5.0f;
+    const float STEER_FACTOR = 50.0f;
+
+    private Rigidbody rb;
+
+
+
+    private void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(centerOfMassX, centerOfMassY, centerOfMassZ);
+        rb = GetComponent<Rigidbody>();
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+
+        accelerate.Enable();
+        brake.Enable();
+        steer.Enable();
+
+        accelerate.performed += AccelerateInput;
+        accelerate.canceled += AccelerateInput;
+
+        brake.performed += BrakeInput;
+        brake.canceled += BrakeInput;
+
+        steer.performed += SteerInput;
+        steer.canceled += SteerInput;
     }
-    void Update()
+
+    public void AccelerateInput(InputAction.CallbackContext c)
     {
-        power = Input.GetAxis("Vertical") * enginePower * Time.deltaTime * 250.0f;
-        steer = Input.GetAxis("Horizontal") * maxSteer;
-        brake = Input.GetKey(KeyCode.Space) ? GetComponent<Rigidbody>().mass * 1.0f : 0.0f;
-        GetCollider(0).steerAngle = steer;
-        GetCollider(1).steerAngle = steer;
-        if (brake > 0.0)
+        accelerationValue = c.ReadValue<float>() * ACCELERATION_FACTOR;
+    }
+
+    public void BrakeInput(InputAction.CallbackContext c)
+    {
+        brakeValue = c.ReadValue<float>() * BRAKE_FACTOR;
+    }
+
+    public void SteerInput(InputAction.CallbackContext c)
+    {
+        steerValue = c.ReadValue<float>() * STEER_FACTOR;
+    }
+
+    private void FixedUpdate()
+    {
+        float currentSpeed = rb.linearVelocity.magnitude;
+
+        if (accelerationValue > 0f)
         {
-            GetCollider(0).brakeTorque = brake;
-            GetCollider(1).brakeTorque = brake;
-            GetCollider(2).brakeTorque = brake;
-            GetCollider(3).brakeTorque = brake;
-            GetCollider(2).motorTorque = 0.0f;
-            GetCollider(3).motorTorque = 0.0f;
+            rb.AddForce(transform.forward * accelerationValue, ForceMode.Acceleration);
         }
-        else
+
+        if (brakeValue < 0f)
         {
-            GetCollider(0).brakeTorque = 0f;
-            GetCollider(1).brakeTorque = 0f;
-            GetCollider(2).brakeTorque = 0f;
-            GetCollider(3).brakeTorque = 0f;
-            GetCollider(2).motorTorque = power;
-            GetCollider(3).motorTorque = power;
+            rb.AddForce(transform.forward * brakeValue, ForceMode.Acceleration);
+        }
+
+
+        if (currentSpeed > 0.1f)
+        {
+            float steerAmount = steerValue * Mathf.Sign(Vector3.Dot(rb.linearVelocity, transform.forward));
+            transform.Rotate(0f, steerAmount * Time.fixedDeltaTime, 0f);
+        }
+
+        if (currentSpeed > maxSpeed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
     }
-    WheelCollider GetCollider(int n)
+
+    public void SpeedBoost(float boost_)
     {
-        return wheels[n].gameObject.GetComponent<WheelCollider>();
+        StartCoroutine(BoostTimer(boost_, 10f));
+    }
+
+    private IEnumerator BoostTimer(float boost_, float duration_)
+    {
+        currentSpeed += boost_;
+        maxSpeed += boost_ * 2;
+        yield return new WaitForSeconds(duration_);
+        currentSpeed -= boost_;
+        maxSpeed -= boost_ * 2;
     }
 }
