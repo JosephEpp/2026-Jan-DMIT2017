@@ -22,7 +22,7 @@ public class SaveSystem : MonoBehaviour
         {
             if(!fileExists)
             {
-                sw.WriteLine("Profile Name, Score");
+                sw.WriteLine("Profile Name, Score, Vehicle Type, Color, GhostIndex");
             }
 
             sw.WriteLine($"{profile.profileName}, {profile.highScore}");
@@ -61,10 +61,16 @@ public class SaveProfile
 {
     public string profileName;
     public int highScore;
+    public int vehicleType;
+    public string color;
+    public int ghostIndex;
 
-    public SaveProfile(string profileName_, int highScore_)
+    public SaveProfile(string profileName_, int highScore_, int vehicleType_, string color_, int ghostIndex_)
     {
         profileName = profileName_;
         highScore = highScore_;
+        vehicleType = vehicleType_;
+        color = color_;
+        ghostIndex = ghostIndex_;
     }
 }

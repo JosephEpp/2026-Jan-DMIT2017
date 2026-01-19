@@ -85,7 +85,7 @@ public class VehicleController : MonoBehaviour
 
     public void SpeedBoost(float boost_)
     {
-        StartCoroutine(BoostTimer(boost_, 10f));
+        StartCoroutine(BoostTimer(boost_, 3f));
     }
 
     private IEnumerator BoostTimer(float boost_, float duration_)
@@ -95,5 +95,19 @@ public class VehicleController : MonoBehaviour
         yield return new WaitForSeconds(duration_);
         currentSpeed -= boost_;
         maxSpeed -= boost_ * 2;
+    }
+
+    public void StickyZone()
+    {
+        StartCoroutine(StickyTimer(1f));
+    }
+
+    private IEnumerator StickyTimer(float duration_)
+    {
+        currentSpeed /= 2;
+        maxSpeed /= 2;
+        yield return new WaitForSeconds(duration_);
+        currentSpeed *= 2;
+        maxSpeed *= 2;
     }
 }
