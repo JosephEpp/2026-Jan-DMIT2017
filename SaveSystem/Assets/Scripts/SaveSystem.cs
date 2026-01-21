@@ -11,7 +11,8 @@ public class SaveSystem : MonoBehaviour
 
     public void Start()
     {
-        LoadSave(0);
+        CreateSave(new SaveProfile("Joseph", 5, 0, "Red", 0));
+        //LoadSave(0);
     }
 
     public void CreateSave(SaveProfile profile)
@@ -25,7 +26,7 @@ public class SaveSystem : MonoBehaviour
                 sw.WriteLine("Profile Name, Score, Vehicle Type, Color, GhostIndex");
             }
 
-            sw.WriteLine($"{profile.profileName}, {profile.highScore}");
+            sw.WriteLine($"{profile.profileName}, {profile.highScore}, {profile.vehicleType}, {profile.color}, {profile.ghostIndex}");
 
             profiles.Add(profile);
         }
