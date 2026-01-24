@@ -11,8 +11,7 @@ public class SaveSystem : MonoBehaviour
 
     public void Start()
     {
-        CreateSave(new SaveProfile("Joseph", 5, 0, "Red", 0));
-        //LoadSave(0);
+        
     }
 
     public void CreateSave(SaveProfile profile)

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -7,21 +8,21 @@ public class jsonSaving : MonoBehaviour
     public SaveProfile profileData;
 
     [ContextMenu("JSON Save")]
-    public void SaveData()
+    public void SaveData(SaveProfile saveProfile_)
     {
-        SaveProfile saveProfile = new SaveProfile("Joseph", 1010, 1, "Red", 0);
-
-        string json = JsonUtility.ToJson(saveProfile, true);
+        string json = JsonUtility.ToJson(saveProfile_, true);
 
         File.WriteAllText(filePath, json);
     }
 
     [ContextMenu("JSON Load")]
-    public void LoadData()
+    public void LoadData(string profileName_)
     {
-        if(File.Exists(filePath))
+        string loadFilePath = filePath + profileName_ + ".json";
+
+        if(File.Exists(loadFilePath))
         {
-            string json = File.ReadAllText(filePath);
+            string json = File.ReadAllText(loadFilePath);
 
             profileData = JsonUtility.FromJson<SaveProfile>(json);
         }
@@ -29,5 +30,16 @@ public class jsonSaving : MonoBehaviour
         {
             Debug.Log("File not found");
         }
+    }
+
+    [ContextMenu("JSON Delete")]
+    public void DeleteData(SaveProfile profile_)
+    {
+        // List<SaveProfile> saveProfiles = new List<SaveProfile>();
+
+        // saveProfiles.RemoveAt(0); //Set to index
+
+        string filePath = "Assets/Resources/" + profile_.profileName + ".json";
+        File.Delete(filePath);
     }
 }

@@ -356,6 +356,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &237890697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237890699}
+  - component: {fileID: 237890698}
+  m_Layer: 0
+  m_Name: FinishLine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &237890698
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237890697}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &237890699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237890697}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 1.34, z: -0.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d231bfbb55a691b45bfc163cf633d40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::jsonSaving
-  filePath: Assets/Resources/saveData.json
+  filePath: Assets/Resources/
   profileData:
     profileName: Joseph
     highScore: 1010
@@ -1931,7 +1984,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1993286976}
-  - component: {fileID: 1993286975}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1939,130 +1991,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1993286975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993286974}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f7cc3fbd24545f42ac53cb9a9f2b0b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VehicleController
-  accelerate:
-    m_Name: Accelerate
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: d0be597a-ac9a-437f-8eef-bf3e81c1ea5e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 9194bbcf-3b78-41cc-8ac4-34dd4bd489f9
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Accelerate
-      m_Flags: 0
-    - m_Name: 
-      m_Id: aa6d0fc9-44f8-4963-a868-60294d33676f
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Accelerate
-      m_Flags: 0
-    m_Flags: 0
-  brake:
-    m_Name: Brake
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 7499b4d8-293d-4191-9e9a-48c75825587a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: f9c68507-ca77-481c-8f4d-979ca35d3d4c
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Brake
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 71a45d8a-1c53-405c-a538-aa010a6f2ace
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Brake
-      m_Flags: 0
-    m_Flags: 0
-  steer:
-    m_Name: Steer
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 90903ea6-90b0-48b1-8080-2dee5a089e95
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 1D Axis
-      m_Id: d9dcc33c-f2e0-467f-ba67-cf5f9ae7cb91
-      m_Path: 1DAxis
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Steer
-      m_Flags: 4
-    - m_Name: negative
-      m_Id: 6f170e58-9982-4f1c-aa96-f7c7c89b3262
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Steer
-      m_Flags: 8
-    - m_Name: positive
-      m_Id: 57883944-e8e3-4f58-8220-b52c0590d9d5
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Steer
-      m_Flags: 8
-    - m_Name: 1D Axis
-      m_Id: 52659762-5cfe-467f-ba97-97a22de3a3d8
-      m_Path: 1DAxis
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Steer
-      m_Flags: 4
-    - m_Name: negative
-      m_Id: 65df00a4-7740-4c59-9e60-595da1561e86
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Steer
-      m_Flags: 8
-    - m_Name: positive
-      m_Id: b4f01570-950e-4460-bb88-3ba8ae98d393
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Steer
-      m_Flags: 8
-    m_Flags: 0
-  accelerationValue: 0
-  brakeValue: 0
-  steerValue: 0
-  currentSpeed: 0
-  maxSpeed: 15
 --- !u!4 &1993286976
 Transform:
   m_ObjectHideFlags: 0
@@ -2335,3 +2263,4 @@ SceneRoots:
   - {fileID: 2600056986745011206}
   - {fileID: 8940866726402726205}
   - {fileID: 1993286976}
+  - {fileID: 237890699}

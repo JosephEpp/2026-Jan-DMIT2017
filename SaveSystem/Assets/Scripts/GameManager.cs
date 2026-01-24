@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
-    public int activeProfileIndex;
+    public SaveProfile activeProfile;
 
     private void Awake()
     {
