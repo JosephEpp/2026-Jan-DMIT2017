@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
     public SaveProfile activeProfile;
+    public int score;
 
     private void Awake()
     {

@@ -16,9 +16,9 @@ public class jsonSaving : MonoBehaviour
     }
 
     [ContextMenu("JSON Load")]
-    public void LoadData(string profileName_)
+    public void LoadData(int profileNumber_)
     {
-        string loadFilePath = filePath + profileName_ + ".json";
+        string loadFilePath = filePath + "Profile" + profileNumber_ + ".json";
 
         if(File.Exists(loadFilePath))
         {
@@ -41,5 +41,14 @@ public class jsonSaving : MonoBehaviour
 
         string filePath = "Assets/Resources/" + profile_.profileName + ".json";
         File.Delete(filePath);
+    }
+
+    public void NewSaveData(string name, int highscore, int vehicleType, string color, int ghostIndex)
+    {
+        SaveProfile saveProfile = new SaveProfile(name, highscore, vehicleType, color, ghostIndex);
+
+        string json = JsonUtility.ToJson(saveProfile, true);
+
+        File.WriteAllText(filePath, json);
     }
 }
