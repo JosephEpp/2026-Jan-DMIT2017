@@ -24,4 +24,9 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
+    public void SetActiveProfile(SaveProfile saveProfile)
+    {
+        activeProfile = saveProfile;
+    }
 }
