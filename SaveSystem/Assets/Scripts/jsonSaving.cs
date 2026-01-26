@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class jsonSaving : MonoBehaviour
 {
-    public string filePath;
+    public string filePathStarter;
     public SaveProfile profileData;
 
     [ContextMenu("JSON Save")]
@@ -12,13 +12,15 @@ public class jsonSaving : MonoBehaviour
     {
         string json = JsonUtility.ToJson(saveProfile_, true);
 
+        string filePath = filePathStarter + saveProfile_.ghostIndex + ".json";
+
         File.WriteAllText(filePath, json);
     }
 
     [ContextMenu("JSON Load")]
     public void LoadData(int profileNumber_)
     {
-        string loadFilePath = filePath + "Profile" + profileNumber_ + ".json";
+        string loadFilePath = filePathStarter + "Profile" + profileNumber_ + ".json";
 
         if(File.Exists(loadFilePath))
         {
@@ -39,15 +41,18 @@ public class jsonSaving : MonoBehaviour
 
         // saveProfiles.RemoveAt(0); //Set to index
 
-        string filePath = "Assets/Resources/" + profile_.profileName + ".json";
+        string filePath = filePathStarter + "Profile" + profile_.ghostIndex + ".json";
         File.Delete(filePath);
     }
 
+    [ContextMenu("JSON New Save")]
     public void NewSaveData(string name, int highscore, int vehicleType, string color, int ghostIndex)
     {
         SaveProfile saveProfile = new SaveProfile(name, highscore, vehicleType, color, ghostIndex);
 
         string json = JsonUtility.ToJson(saveProfile, true);
+
+        string filePath = filePathStarter + "Profile" + saveProfile.ghostIndex + ".json";
 
         File.WriteAllText(filePath, json);
     }

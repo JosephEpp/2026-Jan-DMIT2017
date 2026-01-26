@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] public GameObject profileMenu;
+    [SerializeField] public GameObject deleteMenu;
+    [SerializeField] public GameObject newProfileMenu;
     [SerializeField] public GameManager gameManager;
     [SerializeField] public jsonSaving saveSystem;
 
@@ -16,7 +19,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         //Load each of the profiles into the list
-        for(int i = 0; i <= 4; i++)
+        for(int i = 0; i < leaderboardProfiles.Count; i++)
         {
             saveSystem.LoadData(i);
 
@@ -40,6 +43,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnPlay()
     {
+        gameManager.score = 0;
         SceneManager.LoadScene("GameScene");
     }
 
@@ -57,11 +61,61 @@ public class MenuManager : MonoBehaviour
         else
         {
             profileMenu.SetActive(true);
+            newProfileMenu.SetActive(false);
+        }
+    }
+
+    public void ToggleDeleteMenu()
+    {
+        if(deleteMenu.activeSelf)
+        {
+            deleteMenu.SetActive(false);
+        }
+        else
+        {
+            deleteMenu.SetActive(true);
+        }
+    }
+
+    public void ToggleNewProfileMenu()
+    {
+        if(newProfileMenu.activeSelf)
+        {
+            newProfileMenu.SetActive(false);
+        }
+        else
+        {
+            newProfileMenu.SetActive(true);
         }
     }
 
     public void SetActiveProfile(int profileIndex)
     {
         gameManager.SetActiveProfile(leaderboardProfiles[profileIndex]);
+    }
+
+    public void SetNewProfileName(TMP_Text name)
+    {
+        newProfile.profileName = name.text;
+    }
+
+    public void SetNewProfileColor(string color)
+    {
+        newProfile.color = color;
+    }
+    
+    public void CreateNewProfile()
+    {
+        int newGhostIndex = leaderboardProfiles.Count;
+
+        newProfile.ghostIndex = newGhostIndex;
+
+        newProfile.vehicleType = 1;
+
+        saveSystem.NewSaveData(newProfile.profileName, newProfile.highScore, newProfile.vehicleType, newProfile.color, newProfile.ghostIndex);
+
+        gameManager.SetActiveProfile(newProfile);
+
+        leaderboardProfiles.Add(newProfile);
     }
 }
