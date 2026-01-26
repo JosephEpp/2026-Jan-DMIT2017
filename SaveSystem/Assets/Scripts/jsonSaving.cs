@@ -14,6 +14,9 @@ public class jsonSaving : MonoBehaviour
 
         string filePath = filePathStarter + "Profile" + saveProfile_.ghostIndex + ".json";
 
+        //Version of saving that works for builds
+        //string file = Path.Combine(Application.persistentDataPath, filePath);
+
         File.WriteAllText(filePath, json);
     }
 
