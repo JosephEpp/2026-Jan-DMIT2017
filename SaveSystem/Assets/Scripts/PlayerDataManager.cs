@@ -7,15 +7,19 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private Material redMaterial;
     [SerializeField] private Material greenMaterial;
     [SerializeField] private jsonSaving saveSystem;
+    [SerializeField] private SaveSystem ghostDataSave;
 
     [SerializeField] private GameObject overwriteMenu;
 
     private GameManager gameManager;
+    private GhostDataRecorder ghostDataRecorder;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+
+        ghostDataRecorder = FindFirstObjectByType<GhostDataRecorder>();
 
         Renderer renderer = GetComponent<Renderer>();
 
@@ -47,22 +51,24 @@ public class PlayerDataManager : MonoBehaviour
             if(gameManager.score > 0)
             {
                 //Stop the game
+                ghostDataRecorder.StopRecording();
                 Time.timeScale = 0;
-
                 overwriteMenu.SetActive(true);
-
-                //Overwrite save data
-                //saveSystem.SaveData(gameManager.activeProfile);
-
-                //Return to title screen
-                //SceneManager.LoadScene(0);
             }
         }
     }
 
     public void OnOverwriteSave()
     {
+        //Record data to profile
+        if(gameManager.activeProfile.highScore < gameManager.score)
+        {
+            gameManager.activeProfile.highScore = gameManager.score;
+        }
+
         //Save data
+        saveSystem.SaveData(gameManager.activeProfile);
+        ghostDataSave.SaveGhostData(gameManager.activeProfile, ghostDataRecorder.ghostData);
 
         //Return to title screen
         ReturnToTitle();

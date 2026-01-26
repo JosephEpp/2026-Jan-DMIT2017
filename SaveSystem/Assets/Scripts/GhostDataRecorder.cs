@@ -15,6 +15,11 @@ public class GhostDataRecorder : MonoBehaviour
         isRecording = true;
     }
 
+    public void StopRecording()
+    {
+        isRecording = false;
+    }
+
     private void FixedUpdate()
     {
         if(!isRecording) return;

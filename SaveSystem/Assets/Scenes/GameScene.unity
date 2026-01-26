@@ -1587,7 +1587,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896569067}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 583524f228600874ab6afe4079951854, type: 3}
   m_Name: 
@@ -1598,7 +1598,7 @@ MonoBehaviour:
     vehicleType: 0
     color: 
     ghostIndex: 0
-  filePath: Assets/Resources/saveData.csv
+  filePathStarter: Assets/Resources/
 --- !u!4 &896569069
 Transform:
   m_ObjectHideFlags: 0
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d231bfbb55a691b45bfc163cf633d40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::jsonSaving
-  filePathStarter: 
+  filePathStarter: Assets/Resources/
   profileData:
     profileName: Joseph
     highScore: 1010
@@ -2157,6 +2157,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 5776d2f2f151089458cabfa1c5ef67ff, type: 2}
   greenMaterial: {fileID: 2100000, guid: ab98491b2c4ba584796dac54047c0e6c, type: 2}
   saveSystem: {fileID: 896569070}
+  ghostDataSave: {fileID: 896569068}
   overwriteMenu: {fileID: 1279082951}
 --- !u!1001 &1171108577
 PrefabInstance:

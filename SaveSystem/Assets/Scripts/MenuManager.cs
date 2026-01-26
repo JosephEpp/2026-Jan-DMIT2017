@@ -16,8 +16,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] public List<ProfileDisplay> leaderboardDisplayItems;
     [SerializeField] public SaveProfile newProfile;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
+        
         //Load each of the profiles into the list
         for(int i = 0; i < leaderboardProfiles.Count; i++)
         {
@@ -44,6 +46,7 @@ public class MenuManager : MonoBehaviour
     public void OnPlay()
     {
         gameManager.score = 0;
+        Time.timeScale = 1;
         SceneManager.LoadScene("GameScene");
     }
 

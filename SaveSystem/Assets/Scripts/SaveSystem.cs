@@ -7,15 +7,11 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
     public List<SaveProfile> profiles = new List<SaveProfile>();
-    public string filePath;
-
-    public void Start()
-    {
-        
-    }
+    public string filePathStarter;
 
     public void CreateSave(SaveProfile profile)
     {
+        string filePath = filePathStarter + "GhostData" + profile.ghostIndex + ".csv";
         bool fileExists = File.Exists(filePath);
 
         using (StreamWriter sw = new StreamWriter(filePath, true))
@@ -36,16 +32,17 @@ public class SaveSystem : MonoBehaviour
         
     }
 
-    public void LoadSave(int saveIndex)
+    public void LoadSave(SaveProfile profile)
     {
         int highScore = 0;
+        string filePath = filePathStarter + "GhostData" + profile.ghostIndex + ".csv";
         string[] lines = File.ReadAllLines(filePath);
 
         for(int i = 0; i < lines.Length; i++)
         {
             string[] columns = Regex.Split(lines[i], ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
 
-            if(columns[0] == profiles[saveIndex].profileName)
+            if(columns[0] == profiles[profile.ghostIndex].profileName)
             {
                 highScore = int.Parse(columns[1]);
                 break;
@@ -53,6 +50,25 @@ public class SaveSystem : MonoBehaviour
         }
 
         Debug.Log(highScore);
+    }
+
+    public void SaveGhostData(SaveProfile profile, GhostData ghostData)
+    {
+        string filePath = filePathStarter + "GhostData" + profile.ghostIndex + ".csv";
+        bool fileExists = File.Exists(filePath);
+
+        using (StreamWriter sw = new StreamWriter(filePath, true))
+        {
+            if(!fileExists)
+            {
+                sw.WriteLine("xP, yP, zP, xR, yR, zR");
+            }
+
+            for(int i = 0; i < ghostData.ghostDataFrames.Count; i++)
+            {
+                sw.WriteLine($"{ghostData.ghostDataFrames[i].position.x},{ghostData.ghostDataFrames[i].position.y},{ghostData.ghostDataFrames[i].position.z},{ghostData.ghostDataFrames[i].rotation.x},{ghostData.ghostDataFrames[i].rotation.y},{ghostData.ghostDataFrames[i].rotation.z}");
+            }
+        }
     }
 }
 

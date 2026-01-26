@@ -12,7 +12,7 @@ public class jsonSaving : MonoBehaviour
     {
         string json = JsonUtility.ToJson(saveProfile_, true);
 
-        string filePath = filePathStarter + saveProfile_.ghostIndex + ".json";
+        string filePath = filePathStarter + "Profile" + saveProfile_.ghostIndex + ".json";
 
         File.WriteAllText(filePath, json);
     }

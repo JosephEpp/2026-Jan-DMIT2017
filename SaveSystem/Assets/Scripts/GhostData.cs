@@ -11,8 +11,8 @@ public class GhostData
 [Serializable]
 public class GhostDataFrame
 {
-    Vector3 position;
-    Vector3 rotation;
+    public Vector3 position;
+    public Vector3 rotation;
 
     public GhostDataFrame(Vector3 position_, Vector3 rotation_)
     {

@@ -107,7 +107,6 @@ public class VehicleController : MonoBehaviour
         currentSpeed /= 2;
         maxSpeed /= 2;
         yield return new WaitForSeconds(duration_);
-        currentSpeed *= 2;
         maxSpeed *= 2;
     }
 }
