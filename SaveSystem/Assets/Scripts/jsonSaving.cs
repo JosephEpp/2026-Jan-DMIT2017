@@ -42,7 +42,12 @@ public class jsonSaving : MonoBehaviour
         // saveProfiles.RemoveAt(0); //Set to index
 
         string filePath = filePathStarter + "Profile" + profile_.ghostIndex + ".json";
-        File.Delete(filePath);
+        bool fileExists = File.Exists(filePath);
+
+        if(fileExists)
+        {
+            File.Delete(filePath);
+        }
     }
 
     [ContextMenu("JSON New Save")]

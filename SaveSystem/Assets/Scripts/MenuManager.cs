@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] public GameObject newProfileMenu;
     [SerializeField] public GameManager gameManager;
     [SerializeField] public jsonSaving saveSystem;
+    [SerializeField] private SaveSystem ghostDataSave;
 
     [SerializeField] public List<SaveProfile> leaderboardProfiles;
     [SerializeField] public List<ProfileDisplay> leaderboardDisplayItems;
@@ -19,7 +20,18 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+
+        SetLeaderboard();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         
+    }
+
+    public void SetLeaderboard()
+    {
         //Load each of the profiles into the list
         for(int i = 0; i < leaderboardProfiles.Count; i++)
         {
@@ -35,12 +47,6 @@ public class MenuManager : MonoBehaviour
         {
             leaderboardDisplayItems[i].SetDisplay(leaderboardProfiles[i]);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnPlay()
@@ -120,5 +126,11 @@ public class MenuManager : MonoBehaviour
         gameManager.SetActiveProfile(newProfile);
 
         leaderboardProfiles.Add(newProfile);
+    }
+
+    public void DeleteProfile()
+    {
+        ghostDataSave.DeleteSave(gameManager.activeProfile);
+        saveSystem.DeleteData(gameManager.activeProfile);
     }
 }

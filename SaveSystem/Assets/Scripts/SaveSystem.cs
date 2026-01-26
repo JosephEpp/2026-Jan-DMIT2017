@@ -27,9 +27,15 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
-    public void DeleteSave()
+    public void DeleteSave(SaveProfile profile_)
     {
-        
+        string filePath = filePathStarter + "GhostData" + profile_.ghostIndex + ".csv";
+        bool fileExists = File.Exists(filePath);
+
+        if(fileExists)
+        {
+            File.Delete(filePath);
+        }
     }
 
     public void LoadSave(SaveProfile profile)
