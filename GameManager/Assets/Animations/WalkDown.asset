@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: WalkDown
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationData
+  animationName: Walk Down
+  frames:
+  - {fileID: -2975888692355568029, guid: dea93b6c31eebd248ba76c011b986998, type: 3}
+  - {fileID: 6241971076650808192, guid: dea93b6c31eebd248ba76c011b986998, type: 3}
+  - {fileID: 714953126774474285, guid: dea93b6c31eebd248ba76c011b986998, type: 3}
+  frameDelay: 0.5
