@@ -10,6 +10,7 @@ public class PlayerAnimation : MonoBehaviour
     private SpriteRenderer sr;
     bool isPlaying = false;
 
+    private PlayerAnimationState currentState = PlayerAnimationState.IDLE_DOWN;
     private Dictionary<PlayerAnimationState, AnimationData> animationDictionary = new Dictionary<PlayerAnimationState, AnimationData>();
 
     public void Start()
@@ -33,8 +34,6 @@ public class PlayerAnimation : MonoBehaviour
     public void SetAnimationState(Vector2 moveDirection)
     {
         //Debug.Log(moveDirection);
-
-        PlayerAnimationState currentState = PlayerAnimationState.IDLE_DOWN;
 
         if(moveDirection.y > 0)
         {
@@ -67,10 +66,10 @@ private PlayerAnimationState GetIdleState(PlayerAnimationState currentState)
 
     switch (currentState)
     {
-        case PlayerAnimationState.WALK_UP:
+        case PlayerAnimationState.WALK_UP: 
             state = PlayerAnimationState.IDLE_UP;
             break;
-        case PlayerAnimationState.WALK_DOWN:
+        case PlayerAnimationState.WALK_DOWN: 
             state = PlayerAnimationState.IDLE_DOWN;
             break;
         case PlayerAnimationState.WALK_LEFT:
@@ -78,6 +77,8 @@ private PlayerAnimationState GetIdleState(PlayerAnimationState currentState)
             break;
         case PlayerAnimationState.WALK_RIGHT:
             state = PlayerAnimationState.IDLE_RIGHT;
+            break;
+        default:
             break;
     }
 
