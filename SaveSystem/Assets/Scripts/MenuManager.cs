@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] public GameObject profileMenu;
+    [SerializeField] public GameObject startMenu;
     [SerializeField] public GameObject deleteMenu;
     [SerializeField] public GameObject newProfileMenu;
     [SerializeField] public GameManager gameManager;
@@ -16,28 +17,26 @@ public class MenuManager : MonoBehaviour
     [SerializeField] public List<SaveProfile> leaderboardProfiles;
     [SerializeField] public List<ProfileDisplay> leaderboardDisplayItems;
     [SerializeField] public SaveProfile newProfile;
+
+    private int numberOfSaveFiles;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
 
-        SetLeaderboard();
-    }
+        numberOfSaveFiles = saveSystem.CountSaveFiles();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SetLeaderboard();
     }
 
     public void SetLeaderboard()
     {
         //Load each of the profiles into the list
-        for(int i = 0; i < leaderboardProfiles.Count; i++)
+        for(int i = 0; i < numberOfSaveFiles; i++)
         {
             saveSystem.LoadData(i);
 
-            leaderboardProfiles[i] = saveSystem.profileData;
+            leaderboardProfiles.Add(saveSystem.profileData);
         }
 
         //Fill the leaderboard in order
@@ -71,6 +70,7 @@ public class MenuManager : MonoBehaviour
         {
             profileMenu.SetActive(true);
             newProfileMenu.SetActive(false);
+            startMenu.SetActive(false);
         }
     }
 
@@ -98,9 +98,33 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void ToggleStartMenu()
+    {
+        if(startMenu.activeSelf)
+        {
+            startMenu.SetActive(false);
+        }
+        else
+        {
+            startMenu.SetActive(true);
+            newProfileMenu.SetActive(false);
+            profileMenu.SetActive(false);
+        }
+    }
+
     public void SetActiveProfile(int profileIndex)
     {
         gameManager.SetActiveProfile(leaderboardProfiles[profileIndex]);
+    }
+
+    public void SetActiveProfileType(int type)
+    {
+        gameManager.activeProfile.vehicleType = type;
+    }
+
+    public void SetActiveProfileColor(string color)
+    {
+        gameManager.activeProfile.color = color;
     }
 
     public void SetNewProfileName(TMP_Text name)

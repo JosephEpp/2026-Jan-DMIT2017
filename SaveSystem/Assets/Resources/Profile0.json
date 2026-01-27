@@ -1,7 +1,7 @@
 {
     "profileName": "Joseph",
     "highScore": 5,
-    "vehicleType": 0,
+    "vehicleType": 1,
     "color": "Red",
     "ghostIndex": 0
 }
