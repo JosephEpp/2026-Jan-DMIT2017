@@ -9,6 +9,12 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private jsonSaving saveSystem;
     [SerializeField] private SaveSystem ghostDataSave;
 
+    [SerializeField] private CarFollow carFollow;
+    [SerializeField] private GameObject carType1;
+    [SerializeField] private GameObject carType2;
+    private GameObject activeCar;
+
+
     [SerializeField] private GameObject overwriteMenu;
 
     private GameManager gameManager;
@@ -19,9 +25,26 @@ public class PlayerDataManager : MonoBehaviour
     {
         gameManager = FindFirstObjectByType<GameManager>();
 
-        ghostDataRecorder = FindFirstObjectByType<GhostDataRecorder>();
+        //Set the car type and remove the inactive car
+        if(gameManager.activeProfile.vehicleType == 1)
+        {
+            activeCar = carType1;
+            carType1.SetActive(true);
+            carType2.SetActive(false);
+        }
+        else
+        {
+            activeCar = carType2;
+            carType1.SetActive(false);
+            carType2.SetActive(true);
+        }
+        carFollow.SetActiveCar(activeCar);
 
-        Renderer renderer = GetComponent<Renderer>();
+        //Get Ghostdata Recorder
+        ghostDataRecorder = activeCar.GetComponent<GhostDataRecorder>();
+
+        //Set the active car's color
+        Renderer renderer = activeCar.GetComponent<Renderer>();
 
         if(gameManager.activeProfile.color == "Blue")
         {

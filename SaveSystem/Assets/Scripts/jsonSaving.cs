@@ -77,11 +77,6 @@ public class jsonSaving : MonoBehaviour
             {
                 numberOfSaveFiles++;
             }
-            else
-            {
-                //break loop
-                i = 20;
-            }
         }
 
         return numberOfSaveFiles;
