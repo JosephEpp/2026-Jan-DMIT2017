@@ -1,31 +1,32 @@
 using System;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TopDownPlayerMovement : MonoBehaviour
 {
+
     public InputAction moveInput;
     private Vector2 movementDirection = Vector2.zero;
-    public float movementSpeed = 1.0f;
-    public event Action<Vector2> 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float moveSpeed = 1.0f;
+    public event Action<Vector2> OnMove;
+    
     void Awake()
     {
         moveInput.Enable();
-        moveInput.performed += GetMoveVector();
-        moveInput.canceled += GetMoveVector();
+        moveInput.performed += GetMoveVector;
+        moveInput.canceled += GetMoveVector;
+
     }
 
     public void GetMoveVector(InputAction.CallbackContext context)
     {
         movementDirection = context.ReadValue<Vector2>();
+        OnMove?.Invoke(movementDirection);
+         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        transform.position = 
+        transform.position += new Vector3(movementDirection.x, movementDirection.y, 0) * moveSpeed * Time.deltaTime;
     }
 }
