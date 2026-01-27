@@ -26,59 +26,63 @@ public class PlayerAnimation : MonoBehaviour
 
     public void InitializeAnimation(AnimationData animationData)
     {
+        StopAllCoroutines();
         StartCoroutine(PlayAnimation(animationData));
     }
 
     public void SetAnimationState(Vector2 moveDirection)
     {
-        Debug.Log(moveDirection);
+        //Debug.Log(moveDirection);
 
         PlayerAnimationState currentState = PlayerAnimationState.IDLE_DOWN;
 
-        //Using a switch case check the players state
-        // y > 0 = WALK_UP
-        switch (moveDirection.y)
+        if(moveDirection.y > 0)
         {
-            case > 0:
-                currentState = PlayerAnimationState.WALK_UP;
-                break;
-            case < 0:
-                currentState = PlayerAnimationState.WALK_DOWN;
-                break;
-            default:
-                if(currentState == PlayerAnimationState.WALK_UP)
-                {
-                    currentState = PlayerAnimationState.IDLE_UP;
-                }
-                else if(currentState == PlayerAnimationState.WALK_DOWN)
-                {
-                    currentState = PlayerAnimationState.IDLE_DOWN;
-                }
-                break;
+            currentState = PlayerAnimationState.WALK_UP;
+        }
+        else if(moveDirection.y < 0)
+        {
+            currentState = PlayerAnimationState.WALK_DOWN;
+        }
+        else if(moveDirection.x > 0)
+        {
+            currentState = PlayerAnimationState.WALK_RIGHT;
+        }
+        else if(moveDirection.x < 0)
+        {
+            currentState = PlayerAnimationState.WALK_LEFT;
         }
 
-        switch (moveDirection.x)
+        if(moveDirection == Vector2.zero)
         {
-            case > 0:
-                currentState = PlayerAnimationState.WALK_RIGHT;
-                break;
-            case < 0:
-                currentState = PlayerAnimationState.WALK_LEFT;
-                break;
-            default:
-                if(currentState == PlayerAnimationState.WALK_RIGHT)
-                {
-                    currentState = PlayerAnimationState.IDLE_RIGHT;
-                }
-                else if(currentState == PlayerAnimationState.WALK_LEFT)
-                {
-                    currentState = PlayerAnimationState.IDLE_LEFT;
-                }
-                break;
+            currentState = GetIdleState(currentState);
         }
 
-        //How to handle idle animations?
+        InitializeAnimation(animationDictionary[currentState]);
     }
+
+private PlayerAnimationState GetIdleState(PlayerAnimationState currentState)
+{
+    PlayerAnimationState state = PlayerAnimationState.IDLE_DOWN;
+
+    switch (currentState)
+    {
+        case PlayerAnimationState.WALK_UP:
+            state = PlayerAnimationState.IDLE_UP;
+            break;
+        case PlayerAnimationState.WALK_DOWN:
+            state = PlayerAnimationState.IDLE_DOWN;
+            break;
+        case PlayerAnimationState.WALK_LEFT:
+            state = PlayerAnimationState.IDLE_LEFT;
+            break;
+        case PlayerAnimationState.WALK_RIGHT:
+            state = PlayerAnimationState.IDLE_RIGHT;
+            break;
+    }
+
+    return state;
+}
 
     private IEnumerator PlayAnimation(AnimationData animation)
     {
@@ -98,14 +102,6 @@ public class PlayerAnimation : MonoBehaviour
         }
         yield return null;
     }
-}
-
-[CreateAssetMenu(fileName = "Animation", menuName = "Animation")]
-public class AnimationData : ScriptableObject
-{
-    public string animationName;
-    public Sprite[] frames;
-    public float frameDelay;
 }
 
 public enum PlayerAnimationState

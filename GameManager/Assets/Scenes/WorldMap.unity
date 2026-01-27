@@ -11461,7 +11461,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -11471,7 +11471,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -11646,24 +11646,24 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 1820aa04dfc45b941974e6a465eebb8b, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 778392475, guid: 2506296a2c43d004e936c05c281dd638, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1775043175, guid: 2506296a2c43d004e936c05c281dd638, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 778392475, guid: 2506296a2c43d004e936c05c281dd638, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: -410442519, guid: 2506296a2c43d004e936c05c281dd638, type: 3}
   - m_RefCount: 1
@@ -11741,7 +11741,7 @@ GameObject:
   - component: {fileID: 1574677470}
   - component: {fileID: 1574677467}
   m_Layer: 0
-  m_Name: chara7_4
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11761,21 +11761,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animations:
   - state: 0
-    animation: {fileID: 0}
+    animation: {fileID: 11400000, guid: 7fb360429f1a7174588ad74513999751, type: 2}
   - state: 1
-    animation: {fileID: 11400000, guid: e7e743d4b454c704caae41080f4da371, type: 2}
+    animation: {fileID: 11400000, guid: 4f038d3b94189674085f1490e48b6ec8, type: 2}
   - state: 2
-    animation: {fileID: 0}
+    animation: {fileID: 11400000, guid: be2e3f58370e8c14caafd55797844e32, type: 2}
   - state: 3
-    animation: {fileID: 0}
-  - state: 0
-    animation: {fileID: 0}
-  - state: 0
-    animation: {fileID: 0}
-  - state: 0
-    animation: {fileID: 0}
-  - state: 0
-    animation: {fileID: 0}
+    animation: {fileID: 11400000, guid: 2d9e33d8cd112cf4cac35938f6f78cf3, type: 2}
+  - state: 4
+    animation: {fileID: 11400000, guid: 103f1479071c1a344b3403deddc18d0e, type: 2}
+  - state: 5
+    animation: {fileID: 11400000, guid: 69b720a54b499464a82efb024e4d334f, type: 2}
+  - state: 6
+    animation: {fileID: 11400000, guid: 3c65ac8cf22757b49ae576fa7796846b, type: 2}
+  - state: 7
+    animation: {fileID: 11400000, guid: b379c104d6111d844a14bc75e598470d, type: 2}
 --- !u!212 &1574677468
 SpriteRenderer:
   serializedVersion: 2
@@ -11844,7 +11844,7 @@ Transform:
   m_GameObject: {fileID: 1574677466}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.94, y: -5.64, z: 0}
+  m_LocalPosition: {x: -4.66, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
