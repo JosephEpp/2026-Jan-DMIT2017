@@ -33,10 +33,49 @@ public class PlayerAnimation : MonoBehaviour
     {
         Debug.Log(moveDirection);
 
-        PlayerAnimationState currentState;
+        PlayerAnimationState currentState = PlayerAnimationState.IDLE_DOWN;
 
         //Using a switch case check the players state
         // y > 0 = WALK_UP
+        switch (moveDirection.y)
+        {
+            case > 0:
+                currentState = PlayerAnimationState.WALK_UP;
+                break;
+            case < 0:
+                currentState = PlayerAnimationState.WALK_DOWN;
+                break;
+            default:
+                if(currentState == PlayerAnimationState.WALK_UP)
+                {
+                    currentState = PlayerAnimationState.IDLE_UP;
+                }
+                else if(currentState == PlayerAnimationState.WALK_DOWN)
+                {
+                    currentState = PlayerAnimationState.IDLE_DOWN;
+                }
+                break;
+        }
+
+        switch (moveDirection.x)
+        {
+            case > 0:
+                currentState = PlayerAnimationState.WALK_RIGHT;
+                break;
+            case < 0:
+                currentState = PlayerAnimationState.WALK_LEFT;
+                break;
+            default:
+                if(currentState == PlayerAnimationState.WALK_RIGHT)
+                {
+                    currentState = PlayerAnimationState.IDLE_RIGHT;
+                }
+                else if(currentState == PlayerAnimationState.WALK_LEFT)
+                {
+                    currentState = PlayerAnimationState.IDLE_LEFT;
+                }
+                break;
+        }
 
         //How to handle idle animations?
     }
