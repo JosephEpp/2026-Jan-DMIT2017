@@ -31,6 +31,9 @@ public class MenuManager : MonoBehaviour
 
     public void SetLeaderboard()
     {
+        //Clear the leaderboard
+        leaderboardProfiles.Clear();
+
         //Load each of the profiles into the list
         for(int i = 0; i < numberOfSaveFiles; i++)
         {
@@ -44,7 +47,14 @@ public class MenuManager : MonoBehaviour
 
         for(int i = 0; i <= 4; i++)
         {
-            leaderboardDisplayItems[i].SetDisplay(leaderboardProfiles[i]);
+            if(leaderboardProfiles[i] != null)
+            {
+                leaderboardDisplayItems[i].SetDisplay(leaderboardProfiles[i]);
+            }
+            else
+            {
+                leaderboardDisplayItems[i].SetDisplay(new SaveProfile("Empty Slot", 0, 0, "N/A", -1));
+            }
         }
     }
 
@@ -156,5 +166,8 @@ public class MenuManager : MonoBehaviour
     {
         ghostDataSave.DeleteSave(gameManager.activeProfile);
         saveSystem.DeleteData(gameManager.activeProfile);
+
+        numberOfSaveFiles = saveSystem.CountSaveFiles();
+        SetLeaderboard();
     }
 }
