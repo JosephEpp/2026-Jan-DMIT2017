@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7790bc5d09ce4f87fa2062e31940d, type: 3}
   m_Name: MapLibrary
   m_EditorClassIdentifier: Assembly-CSharp::MapLibrary
-  mapLibrary: []
+  mapLibrary:
+  - {fileID: 11400000, guid: b800a3b9dc10e1f4188016f44d6a2904, type: 2}
+  - {fileID: 11400000, guid: 246c9d8570ac92e4f9960f15e22a4efd, type: 2}
+  - {fileID: 11400000, guid: 343a1f8477ee3e040896705fb6a09647, type: 2}
+  - {fileID: 11400000, guid: c5263e21eec861e4d9d0a57aa2326062, type: 2}
+  - {fileID: 11400000, guid: d549719b040784646afa1a9c156ebf35, type: 2}

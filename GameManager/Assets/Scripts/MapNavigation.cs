@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MapNavigation : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class MapNavigation : MonoBehaviour
     public static MapNavigation instance;
     public event Action<PlayerAnimationState> OnEnterMap;
     public GameObject currentMap;
+
+    public UnityEvent OnNavigate;
 
     void Awake()
     {
@@ -28,6 +31,7 @@ public class MapNavigation : MonoBehaviour
         foreach(MapSO map in mapLibrary.mapLibrary)
         {
             mapDictionary.Add(map.mapID, new MapData(map));
+            Debug.Log(map.mapName + " Initalized");
         }
     }
 
@@ -40,6 +44,8 @@ public class MapNavigation : MonoBehaviour
 
         Vector3 newPosition = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[entryPointID].cell);
         player.position = newPosition;
+
+        OnNavigate?.Invoke();
     }
 }
 
@@ -48,7 +54,7 @@ public class MapData
     public GameObject prefab;
     public int mapID;
     public string mapName;
-    public Dictionary<int, MapEntryPoint> entryPoints;
+    public Dictionary<int, MapEntryPoint> entryPoints = new Dictionary<int, MapEntryPoint>();
 
     public MapData(MapSO config)
     {

@@ -18,11 +18,3 @@ public class MapEntryPoint
     public Vector3Int cell;
     public PlayerAnimationState targetState;
 }
-
-public enum ExitDirection
-{
-    EXIT_UP,
-    EXIT_DOWN,
-    EXIT_RIGHT,
-    EXIT_LEFT
-}
