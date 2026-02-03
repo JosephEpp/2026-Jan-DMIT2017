@@ -5,11 +5,6 @@ public class RangedEnemy : Enemy
     public GameObject projectile;
     public GameObject projectileSpawnPoint;
 
-    public override void Patrol()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void Attack()
     {
         GameObject obj = Instantiate(projectile, projectileSpawnPoint.transform.position, Quaternion.identity);
@@ -22,9 +17,9 @@ public class RangedEnemy : Enemy
         StartCoroutine(AttackCoroutine());
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage()
     {
-        HP -= damage;
+        HP -= 1;
     }
 
     public override void Die()
