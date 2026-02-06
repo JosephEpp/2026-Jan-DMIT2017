@@ -17,6 +17,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         TopDownPlayerMovement playerMovement = GetComponent<TopDownPlayerMovement>();
         playerMovement.OnMove += SetAnimationState;
+        spriteAnimator = GetComponent<SpriteAnimator>();
 
         foreach(AnimationStateData animationStateData in animations)
         {

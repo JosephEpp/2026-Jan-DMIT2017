@@ -1,27 +1,27 @@
+using System.Collections;
 using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
+    [Header("Attack Info")]
+    public SpriteRenderer spriteRenderer;
+    public Color defaultColor;
+    public Color attackColor;
 
     public override void Attack()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(AttackAnimation());
     }
 
     public override void Die()
     {
-        HP -= 5;
-    }
-
-   
-
-    public override void Pursue()
-    {
         throw new System.NotImplementedException();
     }
 
-    public override void TakeDamage()
+    private IEnumerator AttackAnimation()
     {
-        throw new System.NotImplementedException();
+        spriteRenderer.color = attackColor;
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = defaultColor;
     }
 }

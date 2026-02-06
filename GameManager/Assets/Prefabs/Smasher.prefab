@@ -41,11 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6549678638884290523}
   - component: {fileID: 4625255142119396525}
-  - component: {fileID: 4473677589910541742}
+  - component: {fileID: 8577075606211687491}
   - component: {fileID: 3631209990996201087}
   - component: {fileID: 7767994255320054666}
   m_Layer: 0
-  m_Name: Gunner
+  m_Name: Smasher
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1687631034770792516, guid: dea93b6c31eebd248ba76c011b986998, type: 3}
+  m_Sprite: {fileID: -3464973775742621221, guid: dea93b6c31eebd248ba76c011b986998, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4473677589910541742
+--- !u!114 &8577075606211687491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,9 +137,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2538511244702351335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff6c1057ade45364189c6f55f174b4d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a466019490b6d3479275b3d27b98a18, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RangedEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
   HP: 10
   ATK: 0
   DEF: 0
@@ -147,9 +147,6 @@ MonoBehaviour:
   sightline: {fileID: 2702628643722423111}
   attackRange: {fileID: 4483605701203122179}
   patrolRange: {x: 5, y: 5}
-  projectilePrefab: {fileID: 3949971408845401952, guid: ea9bde81e322dd54f97e93c298a239b0, type: 3}
-  projectileSpawnLocation: {fileID: 5336321503783509788}
-  projectileSpeed: 0.75
 --- !u!114 &3631209990996201087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIMovement
   range: 0
-  moveSpeed: 1
+  moveSpeed: 1.2
 --- !u!50 &7767994255320054666
 Rigidbody2D:
   serializedVersion: 5
