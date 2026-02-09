@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21466a9f94c8cd4f9c0ddd629b1a4af, type: 3}
   m_Name: Castle
   m_EditorClassIdentifier: Assembly-CSharp::MapSO
-  prefab: {fileID: 958209574276699482, guid: 20d7c2da8cef4b14ca0b6fadaa62d301, type: 3}
+  prefab: {fileID: 958209574276699482, guid: 478d8c214d7b0e948adf5482d49cb196, type: 3}
   mapID: 4
   mapName: Caslte
   mapEntryPoints:

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93fad23dee06a5247b079747114ec585, type: 3}
-  m_Name: Dave
+  m_Name: Hank
   m_EditorClassIdentifier: Assembly-CSharp::EnemySO
-  prefab: {fileID: 2538511244702351335, guid: 32f5695553c9e324386f4ee54122ef0b, type: 3}
+  prefab: {fileID: 2538511244702351335, guid: d26870efd9ba0ef428aaacee63b15012, type: 3}
   HP: 10
-  ATK: 2
-  DEF: 3
+  ATK: 3
+  DEF: 6

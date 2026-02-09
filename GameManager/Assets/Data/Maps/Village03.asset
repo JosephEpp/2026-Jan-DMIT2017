@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21466a9f94c8cd4f9c0ddd629b1a4af, type: 3}
   m_Name: Village03
   m_EditorClassIdentifier: Assembly-CSharp::MapSO
-  prefab: {fileID: 958209574276699482, guid: 20d7c2da8cef4b14ca0b6fadaa62d301, type: 3}
+  prefab: {fileID: 958209574276699482, guid: e45f567a437115342a11fc8955fc2d3b, type: 3}
   mapID: 3
   mapName: Village03
   mapEntryPoints:

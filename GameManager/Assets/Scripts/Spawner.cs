@@ -6,8 +6,8 @@ public class Spawner : MonoBehaviour
     public Transform[] spawnPoints;
     public List<EnemySO> spawnPool = new List<EnemySO>();
 
-    [ContextMenu("Spawn Random Enemy")]
-    public void SpawnRandom()
+    [ContextMenu("Spawn Enemy")]
+    public void Spawn()
     {
         //Choose a spawn point
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -21,6 +21,15 @@ public class Spawner : MonoBehaviour
         e.HP = enemyToSpawn.HP;
         e.ATK = enemyToSpawn.ATK;
         e.DEF = enemyToSpawn.DEF;
+    }
 
+    public void Spawn(EnemySO enemy, int hp)
+    {
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        GameObject tmp = Instantiate(enemy.prefab, spawnPoint.position, Quaternion.identity);
+        Enemy e = tmp.GetComponent<Enemy>();
+        e.HP = hp;
+        e.DEF = enemy.DEF;
+        e.ATK = enemy.ATK;
     }
 }

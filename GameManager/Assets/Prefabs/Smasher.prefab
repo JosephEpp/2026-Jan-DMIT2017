@@ -141,12 +141,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
   HP: 10
-  ATK: 0
-  DEF: 0
-  attackDelay: 1
+  ATK: 3
+  DEF: 5
+  attackDelay: 0.8
   sightline: {fileID: 2702628643722423111}
   attackRange: {fileID: 4483605701203122179}
   patrolRange: {x: 5, y: 5}
+  spriteRenderer: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  attackColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3631209990996201087
 MonoBehaviour:
   m_ObjectHideFlags: 0
