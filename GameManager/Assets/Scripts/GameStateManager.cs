@@ -4,22 +4,49 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    public static GameStateManager instance;
     public List<MapState> mapStates;
     public Transform mapParent;
     private Spawner spawner;
+    private MapState currentMap;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
+    private void Start()
+    {
+        foreach(MapState map in mapStates)
+        {
+            map.InitializeEnemyDictionary();
+        }
+        InitializeMap(0);
+    }
 
     public void InitializeMap(int mapID_)
     {
-        MapState targetMap = null;
         foreach(MapState mapState in mapStates)
         {
-            if(mapState.mapID == targetMap.mapID)
+            if(mapState.mapData.mapID == mapID_)
             {
-                targetMap = mapState;
+                currentMap = mapState;
             }
         }
 
-        BeginEnemySpawn(targetMap);
+        BeginEnemySpawn(currentMap);
+    }
+
+    public void SaveMapState()
+    {
+        if(spawner == null) return;
+
+        List<Enemy> activeEnemies = spawner.activeEnemies;
+
+        foreach(Enemy enemy in activeEnemies)
+        {
+            currentMap.enemyDictionary[enemy.enemyID].currentHP = enemy.HP;
+        }
     }
 
     public void BeginEnemySpawn(MapState map)
@@ -27,7 +54,10 @@ public class GameStateManager : MonoBehaviour
         spawner = mapParent.GetComponentInChildren<Spawner>();
         foreach(EnemyState enemy in map.enemies)
         {
-            spawner.Spawn(enemy.enemyData, enemy.currentHP);
+            if(enemy.currentHP > 0)
+            {
+                spawner.Spawn(enemy);
+            }
         }
     }
 }
@@ -35,9 +65,17 @@ public class GameStateManager : MonoBehaviour
 [Serializable]
 public class MapState
 {
-    public int mapID;
-    
+    public MapSO mapData;
     public List<EnemyState> enemies;
+    public Dictionary<int, EnemyState> enemyDictionary;
+
+    public void InitializeEnemyDictionary()
+    {
+        foreach(EnemyState enemy in enemies)
+        {
+            enemyDictionary.Add(enemy.enemyID, enemy);
+        }
+    }
 }
 
 [Serializable]

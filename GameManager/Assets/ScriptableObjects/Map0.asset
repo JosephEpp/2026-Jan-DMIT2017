@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21466a9f94c8cd4f9c0ddd629b1a4af, type: 3}
   m_Name: Map0
   m_EditorClassIdentifier: Assembly-CSharp::MapSO
-  prefab: {fileID: 0}
+  prefab: {fileID: 958209574276699482, guid: 1291ec060d2eac24b9adbdb1cf7b7d4f, type: 3}
   mapID: 0
   mapName: Overworld
   mapEntryPoints:

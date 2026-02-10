@@ -45,6 +45,8 @@ public class MapNavigation : MonoBehaviour
         Vector3 newPosition = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[entryPointID].cell);
         player.position = newPosition;
 
+        GameStateManager.instance.SaveMapState();
+
         OnNavigate?.Invoke();
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(AIMovement))]
 public abstract class Enemy : MonoBehaviour
 {
+    public int enemyID;
     [Header("Combat Params")]
     public int HP;
     public int ATK;
