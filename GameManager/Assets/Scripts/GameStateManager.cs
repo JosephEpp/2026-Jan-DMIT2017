@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager instance;
-    public List<MapState> mapStates;
+    public GameState gameState;
+    //public Transform mapParent;
     public Transform mapParent;
     private Spawner spawner;
     private MapState currentMap;
@@ -17,7 +18,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
-        foreach(MapState map in mapStates)
+        foreach(MapState map in gameState.mapStates)
         {
             map.InitializeEnemyDictionary();
         }
@@ -26,7 +27,7 @@ public class GameStateManager : MonoBehaviour
 
     public void InitializeMap(int mapID_)
     {
-        foreach(MapState mapState in mapStates)
+        foreach(MapState mapState in gameState.mapStates)
         {
             if(mapState.mapData.mapID == mapID_)
             {
@@ -60,6 +61,19 @@ public class GameStateManager : MonoBehaviour
             }
         }
     }
+
+    public void ResetAllMaps()
+    {
+        foreach(MapState mapState in gameState.mapStates)
+        {
+           
+                foreach(KeyValuePair<int, EnemyState> pair in mapState.enemyDictionary)
+                {
+                    pair.Value.currentHP = pair.Value.maxHP;
+                }
+            
+        }
+    }
 }
 
 [Serializable]
@@ -84,4 +98,12 @@ public class EnemyState
     public int enemyID;
     public EnemySO enemyData;
     public int currentHP;
+    public int maxHP;
+}
+
+[Serializable]
+public class GameState
+{
+    public List<MapState> mapStates;
+
 }
