@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a466019490b6d3479275b3d27b98a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
+  enemyID: 0
   HP: 10
   ATK: 3
   DEF: 5
@@ -147,7 +148,7 @@ MonoBehaviour:
   sightline: {fileID: 2702628643722423111}
   attackRange: {fileID: 4483605701203122179}
   patrolRange: {x: 5, y: 5}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 4625255142119396525}
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
   attackColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3631209990996201087

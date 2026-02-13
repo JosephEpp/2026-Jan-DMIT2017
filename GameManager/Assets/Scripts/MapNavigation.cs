@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -37,6 +38,8 @@ public class MapNavigation : MonoBehaviour
 
     public void GoToMap(int mapID, int entryPointID)
     {
+        GameStateManager.instance.SaveGameState();
+        currentMap.GetComponentInChildren<Spawner>().ClearEnemies();
         Destroy(currentMap);
         currentMap = Instantiate(mapDictionary[mapID].prefab, mapParent);
 
@@ -44,10 +47,15 @@ public class MapNavigation : MonoBehaviour
 
         Vector3 newPosition = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[entryPointID].cell);
         player.position = newPosition;
-
-        GameStateManager.instance.SaveMapState();
+        StartCoroutine(InitMap(mapID));
 
         OnNavigate?.Invoke();
+    }
+
+    private IEnumerator InitMap(int mapID)
+    {
+        yield return new WaitForEndOfFrame();
+        GameStateManager.instance.InitializeMap(mapID);
     }
 }
 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd04bd3f460fea048873496e5325b94d, type: 3}
+  m_Name: Enemy DB
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDB
+  enemies:
+  - enemySO: {fileID: 11400000, guid: ea8126920f9fce1439178f5d26910a6d, type: 2}
+    enemyID: 0
+  - enemySO: {fileID: 11400000, guid: 4e831da834670f3429e1c9c713777111, type: 2}
+    enemyID: 1
+  - enemySO: {fileID: 11400000, guid: b9c7f46e247dbc440925c3dacf56a8b4, type: 2}
+    enemyID: 2
+  - enemySO: {fileID: 11400000, guid: 95b581ee185318d43a07a2a7a69a49f4, type: 2}
+    enemyID: 3

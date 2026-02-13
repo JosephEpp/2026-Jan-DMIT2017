@@ -73,7 +73,18 @@ public abstract class Enemy : MonoBehaviour
 
     public void TakeDamage(int dmg_)
     {
-        HP -= dmg_;
+        int totalDamage = dmg_ - DEF;
+        if(totalDamage <= 0)
+        {
+            totalDamage = 1;
+        }
+
+        HP -= totalDamage;
+
+        if(HP <= 0)
+        {
+            Die();
+        }
     }
     public void Pursue()
     {

@@ -23,4 +23,15 @@ public class PlayerCombatController : MonoBehaviour
     {
         Instantiate(attackPrefab, attackSpawn.position, Quaternion.identity);
     }
+
+    public void TakeDamage(int dmg_)
+    {
+        int totalDamage = dmg_ - DEF;
+        if(totalDamage <= 0)
+        {
+            totalDamage = 1;
+        }
+
+        currentHP -= totalDamage;
+    }
 }
