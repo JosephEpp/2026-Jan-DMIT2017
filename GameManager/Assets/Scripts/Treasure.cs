@@ -24,6 +24,7 @@ public class Treasure : MonoBehaviour, IInteractable
     public void Interact()
     {
         // add coins
+        GameStateManager.instance.treasure++;
 
         // play sound
 

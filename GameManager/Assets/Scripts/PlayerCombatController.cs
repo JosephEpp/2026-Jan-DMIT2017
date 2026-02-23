@@ -34,4 +34,9 @@ public class PlayerCombatController : MonoBehaviour
 
         currentHP -= totalDamage;
     }
+
+    public void FullHeal()
+    {
+        currentHP = maxHP;
+    }
 }

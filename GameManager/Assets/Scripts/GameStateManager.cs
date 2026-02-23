@@ -11,6 +11,8 @@ public class GameStateManager : MonoBehaviour
     private Spawner spawner;
     private MapState currentMapState;
 
+    public int treasure;
+
     void Awake()
     {
         instance = this;
