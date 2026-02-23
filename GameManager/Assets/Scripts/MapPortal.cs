@@ -7,8 +7,6 @@ public class MapPortal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
-
         if(collision.CompareTag("Player"))
         {
             Debug.Log("Moving Maps");

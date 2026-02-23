@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76a0b3e1f3aaf54681d3666e9947920, type: 3}
+  m_Name: SampleDialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogSO
+  dialogLine: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis
+    justo sem. Vivamus pretium dui elit, eget gravida quam hendrerit dapibus. Nulla
+    at arcu nec diam tincidunt ultrices. Proin ac quam ac urna sollicitudin tristique
+    a consectetur massa. Nunc turpis eros, ornare sit amet maximus at, aliquam eu
+    tortor. Cras a aliquet ex.
+  speakerName: Brad
+  portrait: {fileID: 0}

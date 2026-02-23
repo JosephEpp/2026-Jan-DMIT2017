@@ -67,13 +67,15 @@ public class GameStateManager : MonoBehaviour
         if (spawner != null)
         {
             List<Enemy> enemies = spawner.activeEnemies;
-            foreach (Enemy enemy in enemies)
+            if(enemies.Count <= 0)
             {
-                currentMapState.enemyDictionary[enemy.enemyID].currentHP = enemy.HP;
-                Debug.Log(currentMapState.enemyDictionary[enemy.enemyID].currentHP);
+                foreach (Enemy enemy in enemies)
+                {
+                    currentMapState.enemyDictionary[enemy.enemyID].currentHP = enemy.HP;
+                    Debug.Log(currentMapState.enemyDictionary[enemy.enemyID].currentHP);
+                }
             }
         }
-
     }
 }
 
