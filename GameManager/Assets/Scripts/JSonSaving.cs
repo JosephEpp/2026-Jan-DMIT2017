@@ -5,8 +5,8 @@ public class JSonSaving : MonoBehaviour
 {
     //public string filePath;
     public string saveName;
-    [ContextMenu("JSON Save")]
 
+    [ContextMenu("JSON Save")]
     public void SaveData()
     {
         //string file = filePath + saveName + ".json";
@@ -25,5 +25,11 @@ public class JSonSaving : MonoBehaviour
     public void LoadNewGame()
     {
         
+    }
+
+    public void SaveAndQuit()
+    {
+        SaveData();
+        Application.Quit();
     }
 }

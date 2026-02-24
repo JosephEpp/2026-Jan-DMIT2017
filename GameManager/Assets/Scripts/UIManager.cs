@@ -1,8 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
+    private InputAction pauseAction;
+    public GameObject pauseMenu;
     public TextMeshProUGUI goldDisplay;
     public TextMeshProUGUI healthDisplay;
 
@@ -14,6 +17,9 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         player = FindFirstObjectByType<PlayerCombatController>();
+
+        pauseAction = InputSystem.actions.FindAction("Pause");
+        pauseAction.performed += Context => Pause();
     }
 
     // Update is called once per frame
@@ -29,6 +35,20 @@ public class UIManager : MonoBehaviour
         {
             health = player.currentHP;
             healthDisplay.text = $"{health}";
+        }
+    }
+
+    public void Pause()
+    {
+        if(pauseMenu.activeSelf)
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }
