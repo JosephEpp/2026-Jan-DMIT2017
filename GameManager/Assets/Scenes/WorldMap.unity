@@ -1398,9 +1398,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
   gameState:
+    currentHP: 0
+    maxHP: 0
+    ATK: 0
+    DEF: 0
+    treasure: 0
     mapStates:
     - mapID: 0
       enemyStates: []
+      hasTreasure: 0
+      treasureCollected: 0
     - mapID: 1
       enemyStates:
       - enemyID: 0
@@ -1412,6 +1419,8 @@ MonoBehaviour:
       - enemyID: 0
         currentHP: 10
         maxHP: 10
+      hasTreasure: 1
+      treasureCollected: 0
     - mapID: 2
       enemyStates:
       - enemyID: 0
@@ -1423,6 +1432,8 @@ MonoBehaviour:
       - enemyID: 0
         currentHP: 10
         maxHP: 10
+      hasTreasure: 1
+      treasureCollected: 0
     - mapID: 3
       enemyStates:
       - enemyID: 0
@@ -1434,10 +1445,13 @@ MonoBehaviour:
       - enemyID: 0
         currentHP: 10
         maxHP: 10
+      hasTreasure: 1
+      treasureCollected: 0
     - mapID: 4
       enemyStates: []
+      hasTreasure: 0
+      treasureCollected: 0
   mapParent: {fileID: 1200783411}
-  treasure: 0
 --- !u!4 &838311321
 Transform:
   m_ObjectHideFlags: 0
@@ -1465,7 +1479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3afc3367dfea5a84c88cc2b86801f6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JSonSaving
-  saveName: 
+  saveName: TestSave
 --- !u!1 &901196795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,12 +2104,12 @@ MonoBehaviour:
       m_Action: Attack Input
       m_Flags: 0
     m_Flags: 0
-  attackSpawn: {fileID: 0}
+  attackSpawn: {fileID: 1574677469}
   attackPrefab: {fileID: 0}
   currentHP: 10
   maxHP: 10
   ATK: 5
-  DEF: 5
+  DEF: 1
 --- !u!1 &1742080863
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,72 @@
+{
+    "mapStates": [
+        {
+            "mapID": 0,
+            "enemyStates": []
+        },
+        {
+            "mapID": 1,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 0,
+                    "currentHP": 10,
+                    "maxHP": 10
+                }
+            ]
+        },
+        {
+            "mapID": 2,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 0,
+                    "currentHP": 10,
+                    "maxHP": 10
+                }
+            ]
+        },
+        {
+            "mapID": 3,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 0,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 0,
+                    "currentHP": 10,
+                    "maxHP": 10
+                }
+            ]
+        },
+        {
+            "mapID": 4,
+            "enemyStates": []
+        }
+    ]
+}

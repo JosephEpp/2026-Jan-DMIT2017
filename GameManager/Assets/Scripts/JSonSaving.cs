@@ -16,4 +16,14 @@ public class JSonSaving : MonoBehaviour
 
         File.WriteAllText(filePathFixed, json);
     }
+
+    public void LoadData()
+    {
+        
+    }
+
+    public void LoadNewGame()
+    {
+        
+    }
 }

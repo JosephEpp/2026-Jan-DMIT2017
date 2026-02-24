@@ -19,9 +19,9 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gold != GameStateManager.instance.treasure)
+        if(gold != GameStateManager.instance.gameState.treasure)
         {
-            gold = GameStateManager.instance.treasure;
+            gold = GameStateManager.instance.gameState.treasure;
             goldDisplay.text = $"{gold}";
         }
 

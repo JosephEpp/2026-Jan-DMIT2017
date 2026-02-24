@@ -18,11 +18,6 @@ public class RangedEnemy : Enemy
         Vector2 projectileVelocity = tmp - playerPosition;
         projectileVelocity.Normalize();
         projectileVelocity *= projectileSpeed;
-        projectile.InstantiateProjectile(-projectileVelocity);
-    }
-
-    public override void Die()
-    {
-        throw new System.NotImplementedException();
+        projectile.InstantiateProjectile(-projectileVelocity, ATK);
     }
 }

@@ -12,7 +12,7 @@ public class MapNavigation : MonoBehaviour
 
     private Dictionary<int, MapData> mapDictionary = new Dictionary<int, MapData>();
     public static MapNavigation instance;
-    public event Action<PlayerAnimationState> OnEnterMap;
+    //public event Action<PlayerAnimationState> OnEnterMap;
     public GameObject currentMap;
 
     public UnityEvent OnNavigate;

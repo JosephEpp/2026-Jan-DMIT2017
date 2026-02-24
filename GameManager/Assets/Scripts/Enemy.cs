@@ -26,7 +26,12 @@ public abstract class Enemy : MonoBehaviour
     private bool patroling;
 
     public abstract void Attack();
-    public abstract void Die();
+
+    [ContextMenu("Try Die")]
+    public void Die()
+    {
+        gameObject.SetActive(false);
+    }
 
     private void Awake()
     {

@@ -13,11 +13,6 @@ public class MeleeEnemy : Enemy
         StartCoroutine(AttackAnimation());
     }
 
-    public override void Die()
-    {
-        
-    }
-
     private IEnumerator AttackAnimation()
     {
         spriteRenderer.color = attackColor;

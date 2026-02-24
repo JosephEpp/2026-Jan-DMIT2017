@@ -10,8 +10,7 @@ public class GameStateManager : MonoBehaviour
     public GameObject mapParent;
     private Spawner spawner;
     private MapState currentMapState;
-
-    public int treasure;
+    private PlayerCombatController player;
 
     void Awake()
     {
@@ -25,6 +24,8 @@ public class GameStateManager : MonoBehaviour
             map.InitializeEnemyDictionary();
         }
         InitializeMap(0);
+
+        LoadPlayerStats();
     }
 
     public void InitializeMap(int mapID_)
@@ -38,6 +39,16 @@ public class GameStateManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void LoadPlayerStats()
+    {
+        player = FindFirstObjectByType<PlayerCombatController>();
+
+        player.currentHP = gameState.currentHP;
+        player.maxHP = gameState.maxHP;
+        player.ATK = gameState.ATK;
+        player.DEF = gameState.DEF;
     }
 
     public void BeginEnemySpawn(MapState map)
@@ -60,6 +71,15 @@ public class GameStateManager : MonoBehaviour
             {
                 e.currentHP = e.maxHP;
             }
+        }
+    }
+
+    public void CollectTreasure()
+    {
+        if(currentMapState.hasTreasure && !currentMapState.treasureCollected)
+        {
+            currentMapState.treasureCollected = true;
+            gameState.treasure++;
         }
     }
 
@@ -87,6 +107,7 @@ public class MapState
     public int mapID;
     public List<EnemyState> enemyStates;
     [NonSerialized] public Dictionary<int, EnemyState> enemyDictionary;
+    public bool hasTreasure, treasureCollected;
 
     public void InitializeEnemyDictionary()
     {
@@ -109,6 +130,13 @@ public class EnemyState
 [Serializable]
 public class GameState
 {
-    public List<MapState> mapStates;
+    [Header("Player Stats")]
+    public int currentHP;
+    public int maxHP;
+    public int ATK;
+    public int DEF;
+    public int treasure = 0;
 
+    [Header("Map Data")]
+    public List<MapState> mapStates;
 }
