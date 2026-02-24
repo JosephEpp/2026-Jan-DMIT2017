@@ -32,7 +32,7 @@ public class MapNavigation : MonoBehaviour
         foreach(MapSO map in mapLibrary.mapLibrary)
         {
             mapDictionary.Add(map.mapID, new MapData(map));
-            Debug.Log(map.mapName + " Initalized");
+            //Debug.Log(map.mapName + " Initalized");
         }
     }
 

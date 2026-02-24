@@ -1416,7 +1416,7 @@ MonoBehaviour:
       - enemyID: 1
         currentHP: 10
         maxHP: 10
-      - enemyID: 0
+      - enemyID: 2
         currentHP: 10
         maxHP: 10
       hasTreasure: 1
@@ -1429,7 +1429,7 @@ MonoBehaviour:
       - enemyID: 1
         currentHP: 10
         maxHP: 10
-      - enemyID: 0
+      - enemyID: 2
         currentHP: 10
         maxHP: 10
       hasTreasure: 1
@@ -1442,7 +1442,7 @@ MonoBehaviour:
       - enemyID: 1
         currentHP: 10
         maxHP: 10
-      - enemyID: 0
+      - enemyID: 2
         currentHP: 10
         maxHP: 10
       hasTreasure: 1
