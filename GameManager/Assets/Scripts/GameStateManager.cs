@@ -9,7 +9,7 @@ public class GameStateManager : MonoBehaviour
     //public Transform mapParent;
     public GameObject mapParent;
     private Spawner spawner;
-    private MapState currentMapState;
+    public MapState currentMapState;
     private PlayerCombatController player;
 
     void Awake()

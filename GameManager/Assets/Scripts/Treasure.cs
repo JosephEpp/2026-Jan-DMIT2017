@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Treasure : MonoBehaviour, IInteractable
@@ -5,7 +7,7 @@ public class Treasure : MonoBehaviour, IInteractable
     [SerializeField] private Sprite openSprite;
     [SerializeField] private Sprite closedSprite;
 
-    public bool collected = false;
+    public bool collected;
 
     private SpriteRenderer sp;
 
@@ -13,6 +15,13 @@ public class Treasure : MonoBehaviour, IInteractable
     {
         sp = GetComponent<SpriteRenderer>();
 
+        StartCoroutine(SetSprite());
+    }
+
+    private IEnumerator SetSprite()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        collected = GameStateManager.instance.currentMapState.treasureCollected;
         if(collected)
         {
             sp.sprite = openSprite;
@@ -35,6 +44,7 @@ public class Treasure : MonoBehaviour, IInteractable
     {
         // add coins
         GameStateManager.instance.CollectTreasure();
+        collected = true;
 
         // play sound
 
