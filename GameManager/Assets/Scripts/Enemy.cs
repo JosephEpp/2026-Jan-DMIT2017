@@ -22,6 +22,7 @@ public abstract class Enemy : MonoBehaviour
     private Vector2 startingPosition;
     private Vector2 nextPosition;
     private AIMovement aiMovement;
+    protected PlayerCombatController player;
 
     private bool patroling;
 
@@ -39,6 +40,7 @@ public abstract class Enemy : MonoBehaviour
         sightline.OnOverlap += SetPlayerPosition;
         attackRange.OnOverlap += SetPlayerPosition;
         aiMovement = GetComponent<AIMovement>();
+        player = FindFirstObjectByType<PlayerCombatController>();
         aiMovement.OnArrive += Patrol;
     }
 

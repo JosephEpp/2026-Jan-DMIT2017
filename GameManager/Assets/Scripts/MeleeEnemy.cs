@@ -16,6 +16,7 @@ public class MeleeEnemy : Enemy
     private IEnumerator AttackAnimation()
     {
         spriteRenderer.color = attackColor;
+        player.TakeDamage(ATK);
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = defaultColor;
     }
