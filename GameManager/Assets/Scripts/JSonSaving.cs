@@ -19,12 +19,12 @@ public class JSonSaving : MonoBehaviour
 
     public void LoadData()
     {
-        
+        //Load game data from the active save
     }
 
     public void LoadNewGame()
     {
-        
+        //Overwrite the active save's data with the default data
     }
 
     public void SaveAndQuit()

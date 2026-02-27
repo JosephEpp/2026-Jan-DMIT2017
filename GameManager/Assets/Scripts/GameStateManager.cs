@@ -51,6 +51,16 @@ public class GameStateManager : MonoBehaviour
         player.DEF = gameState.DEF;
     }
 
+    public void ReadPlayerStats()
+    {
+        player = FindFirstObjectByType<PlayerCombatController>();
+
+        gameState.currentHP = player.currentHP;
+        gameState.maxHP = player.maxHP;
+        gameState.ATK = player.ATK;
+        gameState.DEF = player.DEF;
+    }
+
     public void BeginEnemySpawn(MapState map)
     {
         spawner = mapParent.GetComponentInChildren<Spawner>();
@@ -89,7 +99,7 @@ public class GameStateManager : MonoBehaviour
         if (spawner != null)
         {
             List<Enemy> enemies = spawner.activeEnemies;
-            if(enemies.Count <= 0)
+            if(enemies.Count > 0)
             {
                 foreach (Enemy enemy in enemies)
                 {
@@ -98,6 +108,8 @@ public class GameStateManager : MonoBehaviour
                 }
             }
         }
+
+        ReadPlayerStats();
     }
 }
 

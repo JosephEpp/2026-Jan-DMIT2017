@@ -1752,10 +1752,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
   gameState:
-    currentHP: 0
-    maxHP: 0
-    ATK: 0
-    DEF: 0
+    currentHP: 10
+    maxHP: 10
+    ATK: 5
+    DEF: 1
     treasure: 0
     mapStates:
     - mapID: 0
@@ -1806,6 +1806,11 @@ MonoBehaviour:
       hasTreasure: 0
       treasureCollected: 0
   mapParent: {fileID: 1200783411}
+  currentMapState:
+    mapID: 0
+    enemyStates: []
+    hasTreasure: 0
+    treasureCollected: 0
 --- !u!4 &838311321
 Transform:
   m_ObjectHideFlags: 0
@@ -2476,7 +2481,7 @@ MonoBehaviour:
       m_Action: Move Input
       m_Flags: 8
     m_Flags: 0
-  moveSpeed: 2.5
+  moveSpeed: 3
 --- !u!61 &1574677471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2592,7 +2597,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   attackSpawn: {fileID: 1574677469}
-  attackPrefab: {fileID: 0}
+  attackPrefab: {fileID: 3949971408845401952, guid: ea9bde81e322dd54f97e93c298a239b0, type: 3}
   currentHP: 10
   maxHP: 10
   ATK: 5

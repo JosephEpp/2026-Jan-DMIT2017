@@ -8,6 +8,7 @@ public class SimpleProjectile : MonoBehaviour
     public float speed = 1.0f;
     public float duration = 1.0f;
     public int dmg;
+    public bool playerProjectile = false;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,9 +28,15 @@ public class SimpleProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player") && !playerProjectile)
         {
             collision.GetComponent<PlayerCombatController>().TakeDamage(dmg);
+            Destroy(gameObject);
+        }
+
+        if(collision.CompareTag("Enemy") && playerProjectile)
+        {
+            collision.GetComponent<Enemy>().TakeDamage(dmg);
             Destroy(gameObject);
         }
     }
