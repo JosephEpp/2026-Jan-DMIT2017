@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Inn : MonoBehaviour
 {
@@ -8,9 +9,21 @@ public class Inn : MonoBehaviour
     public void Rest()
     {
         GameStateManager.instance.ResetEnemies();
-        GameStateManager.instance.SaveGameState();
 
         player = FindFirstObjectByType<PlayerCombatController>();
         player.FullHeal();
+
+        GameStateManager.instance.SaveGameState();
+
+        ScreenFader screenFader = FindFirstObjectByType<ScreenFader>();
+        screenFader.BeginScreenFade(1.5f);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            Rest();
+        }
     }
 }
