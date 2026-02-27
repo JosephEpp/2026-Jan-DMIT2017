@@ -1,8 +1,8 @@
 {
-    "currentHP": 0,
-    "maxHP": 0,
-    "ATK": 0,
-    "DEF": 0,
+    "currentHP": 10,
+    "maxHP": 10,
+    "ATK": 5,
+    "DEF": 1,
     "treasure": 0,
     "mapStates": [
         {

@@ -6,7 +6,6 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager instance;
     public GameState gameState;
-    //public Transform mapParent;
     public GameObject mapParent;
     private Spawner spawner;
     public MapState currentMapState;
@@ -104,7 +103,7 @@ public class GameStateManager : MonoBehaviour
                 foreach (Enemy enemy in enemies)
                 {
                     currentMapState.enemyDictionary[enemy.enemyID].currentHP = enemy.HP;
-                    Debug.Log(currentMapState.enemyDictionary[enemy.enemyID].currentHP);
+                    //Debug.Log(currentMapState.enemyDictionary[enemy.enemyID].currentHP);
                 }
             }
         }

@@ -1,0 +1,87 @@
+{
+    "currentHP": 5,
+    "maxHP": 10,
+    "ATK": 5,
+    "DEF": 1,
+    "treasure": 10,
+    "mapStates": [
+        {
+            "mapID": 0,
+            "enemyStates": [],
+            "hasTreasure": false,
+            "treasureCollected": false
+        },
+        {
+            "mapID": 1,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 2,
+                    "currentHP": 10,
+                    "maxHP": 10
+                }
+            ],
+            "hasTreasure": true,
+            "treasureCollected": false
+        },
+        {
+            "mapID": 2,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 2,
+                    "currentHP": 10,
+                    "maxHP": 10
+                }
+            ],
+            "hasTreasure": true,
+            "treasureCollected": false
+        },
+        {
+            "mapID": 3,
+            "enemyStates": [
+                {
+                    "enemyID": 0,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 1,
+                    "currentHP": 10,
+                    "maxHP": 10
+                },
+                {
+                    "enemyID": 2,
+                    "currentHP": 10,
+                    "maxHP": 10
+                }
+            ],
+            "hasTreasure": true,
+            "treasureCollected": false
+        },
+        {
+            "mapID": 4,
+            "enemyStates": [],
+            "hasTreasure": false,
+            "treasureCollected": false
+        }
+    ]
+}
