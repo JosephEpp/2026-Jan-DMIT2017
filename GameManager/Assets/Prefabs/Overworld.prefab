@@ -15580,7 +15580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMapID: 1
-  targetPortalID: 0
+  targetPortalID: 1
 --- !u!1 &7102790854720307641
 GameObject:
   m_ObjectHideFlags: 0

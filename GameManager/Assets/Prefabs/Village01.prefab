@@ -5380,7 +5380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMapID: 0
-  targetPortalID: 0
+  targetPortalID: 3
 --- !u!1 &3539005998062052246
 GameObject:
   m_ObjectHideFlags: 0
@@ -5567,7 +5567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMapID: 0
-  targetPortalID: 0
+  targetPortalID: 3
 --- !u!1 &4516929236459576307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5947,7 +5947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMapID: 0
-  targetPortalID: 0
+  targetPortalID: 3
 --- !u!1 &4948858529637792025
 GameObject:
   m_ObjectHideFlags: 0
@@ -15581,7 +15581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMapID: 0
-  targetPortalID: 0
+  targetPortalID: 3
 --- !u!1 &8545539920832839071
 GameObject:
   m_ObjectHideFlags: 0

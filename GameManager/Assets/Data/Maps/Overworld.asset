@@ -17,14 +17,14 @@ MonoBehaviour:
   mapName: Overworld
   mapEntryPoints:
   - entryPointID: 0
-    cell: {x: 0, y: 0, z: 0}
+    cell: {x: -9, y: -1, z: 0}
     targetState: 0
   - entryPointID: 1
-    cell: {x: 0, y: 0, z: 0}
+    cell: {x: -7, y: -2, z: 0}
     targetState: 2
   - entryPointID: 2
-    cell: {x: 0, y: 0, z: 0}
+    cell: {x: 0, y: 1, z: 0}
     targetState: 1
   - entryPointID: 3
-    cell: {x: 0, y: 0, z: 0}
+    cell: {x: 9, y: 2, z: 0}
     targetState: 3

@@ -17,7 +17,7 @@ MonoBehaviour:
   mapName: Caslte
   mapEntryPoints:
   - entryPointID: 0
-    cell: {x: -9, y: 1, z: 0}
+    cell: {x: 0, y: -6, z: 0}
     targetState: 0
   - entryPointID: 1
     cell: {x: -9, y: 1, z: 0}

@@ -3210,7 +3210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMapID: 0
-  targetPortalID: 0
+  targetPortalID: 1
 --- !u!1 &4513990557739597483
 GameObject:
   m_ObjectHideFlags: 0
@@ -19760,7 +19760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMapID: 0
-  targetPortalID: 0
+  targetPortalID: 1
 --- !u!1001 &8271737014286277075
 PrefabInstance:
   m_ObjectHideFlags: 0

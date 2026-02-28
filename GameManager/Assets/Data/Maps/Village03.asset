@@ -17,7 +17,7 @@ MonoBehaviour:
   mapName: Village03
   mapEntryPoints:
   - entryPointID: 0
-    cell: {x: -6, y: -3, z: 0}
+    cell: {x: 6, y: 6, z: 0}
     targetState: 0
   - entryPointID: 1
     cell: {x: -6, y: -3, z: 0}

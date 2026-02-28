@@ -17,14 +17,14 @@ MonoBehaviour:
   mapName: Village01
   mapEntryPoints:
   - entryPointID: 0
-    cell: {x: 11, y: 3, z: 0}
+    cell: {x: 14, y: 0, z: 0}
     targetState: 0
   - entryPointID: 1
-    cell: {x: 11, y: 3, z: 0}
+    cell: {x: -14, y: 0, z: 0}
     targetState: 2
   - entryPointID: 2
-    cell: {x: 11, y: 3, z: 0}
+    cell: {x: 0, y: 6, z: 0}
     targetState: 1
   - entryPointID: 3
-    cell: {x: 11, y: 3, z: 0}
+    cell: {x: 0, y: -6, z: 0}
     targetState: 3
