@@ -5,18 +5,19 @@ public class ArmourItemSO : InventoryItemSO
 {
     public int armourRating;
     public int armourDuribility;
-    public ArmourSlot armourSlot;
+    public ArmorSlot armorSlot;
 
     public override InventoryItemData CreateRuntimeData()
     {
-        return new ArmourItemData(this);
+        return new ArmorItemData(this);
     }
 }
 
-public enum ArmourSlot
+public enum ArmorSlot
 {
     HEAD,
     CHEST,
     LEGS,
-    BOOTS
+    BOOTS,
+    WEAPON
 }

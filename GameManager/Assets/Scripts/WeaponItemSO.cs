@@ -4,7 +4,7 @@ using UnityEngine;
 public class WeaponItemSO : InventoryItemSO
 {
     public int weaponStrength;
-    public int weaponDuribility;
+    public int weaponDurability;
     public WeaponType weaponType;
 
     public override InventoryItemData CreateRuntimeData()

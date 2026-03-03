@@ -5,11 +5,14 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public Dictionary<InventoryItemSO, InventoryItemData> playerInventory = new Dictionary<InventoryItemSO, InventoryItemData>();
-    public WeaponItemSO itemToAdd;
+    public InventoryItemSO[] tmp;
 
     private void Start()
     {
-        AddItem(itemToAdd);
+        foreach (InventoryItemSO item in tmp)
+        {
+            AddItem(item);
+        }
     }
 
     public void AddItem(InventoryItemSO itemToAdd_)
@@ -24,48 +27,55 @@ public class InventoryManager : MonoBehaviour
     {
         if(playerInventory[itemToRemove_].quantity > 1)
         {
-            playerInventory[itemToAdd].quantity--;
+            playerInventory[itemToRemove_].quantity--;
         }
     }
 }
 
+[Serializable]
 public class InventoryItemData
 {
     public InventoryItemSO config;
     public int quantity;
+    public string itemName;
+    public string flavourText;
+    public Sprite icon;
 }
 
 [Serializable]
 public class WeaponItemData : InventoryItemData
 {
     public int weaponStrength;
-    public int weaponDuribility;
+    public int weaponDurability;
     public WeaponType weaponType;
 
     public WeaponItemData(WeaponItemSO config)
     {
         this.config = config;
 
+        this.flavourText = config.flavourText;
+        this.itemName = config.itemName;
+        this.icon = config.icon;
+
+        this.weaponDurability = config.weaponDurability;
         this.weaponStrength = config.weaponStrength;
-        this.weaponDuribility = config.weaponDuribility;
-        this.weaponType = config.weaponType;
         quantity = 1;
     }
 }
 
 [Serializable]
-public class ArmourItemData : InventoryItemData
+public class ArmorItemData : InventoryItemData
 {
-    public int armourRating;
-    public int armourDuribility;
-    public ArmourSlot armourSlot;
+    public int armorRating;
+    public int armorDuribility;
+    public ArmorSlot armorSlot;
 
-    public ArmourItemData(ArmourItemSO config)
+    public ArmorItemData(ArmourItemSO config)
     {
         this.config = config;
-        this.armourRating = config.armourRating;
-        this.armourDuribility = config.armourDuribility;
-        this.armourSlot = config.armourSlot;
+        this.armorRating = config.armourRating;
+        this.armorDuribility = config.armourDuribility;
+        this.armorSlot = config.armorSlot;
         quantity = 1;
     }
 }
