@@ -17,11 +17,15 @@ public class InventoryButton : MonoBehaviour
         flavourText.text = item.flavourText;
         quantityDisplay.text = item.quantity.ToString();
         icon.sprite = item.icon;
-        GetComponent<Button>().onClick.AddListener(ButtonClick);
+        GetComponent<Button>().onClick.AddListener(ButtonClick);  // <-- very important
     }
 
     public void ButtonClick()
     {
         EquipmentManager.instance.EquipItem(inventoryData);
+
+        // InventoryContainer container
+        // container.AddItemToPlayerInventory(inventoryData, config)
+        // container.AddItemToContainer(inventoryData, config)
     }
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79dcc9f4fb39a0b4b88b877660678ef6, type: 3}
-  m_Name: CrownOfResplendence
+  m_Name: DiamondBoots
   m_EditorClassIdentifier: Assembly-CSharp::ArmourItemSO
-  itemName: Crown of Resplendence
-  flavourText: A hat
-  icon: {fileID: 21300000, guid: 9ac7e9aa85637424fb0a16d9bb0b7f64, type: 3}
-  armourRating: 10
-  armourDuribility: 10
-  armorSlot: 0
+  itemName: Diamond Boots
+  flavourText: It'll get the job done.
+  icon: {fileID: 21300000, guid: bb3af0b403847426e9e892924c827c0c, type: 3}
+  armourRating: 2
+  armourDuribility: 8
+  armorSlot: 3

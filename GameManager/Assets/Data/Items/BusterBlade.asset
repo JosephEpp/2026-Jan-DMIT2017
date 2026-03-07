@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponItemSO
   itemName: Buster Blade
   flavourText: A dragon slaying sword.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ab327baca5df44de1be9b0bf3fba03a9, type: 3}
   weaponStrength: 10
-  weaponDuribility: 10
+  weaponDurability: 3
   weaponType: 0

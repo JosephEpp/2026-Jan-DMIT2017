@@ -17,7 +17,7 @@ public enum ArmorSlot
 {
     HEAD,
     CHEST,
-    LEGS,
+    GLOVES,
     BOOTS,
     WEAPON
 }

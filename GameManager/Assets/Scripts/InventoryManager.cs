@@ -29,6 +29,10 @@ public class InventoryManager : MonoBehaviour
         {
             playerInventory[itemToRemove_].quantity--;
         }
+        else
+        {
+            playerInventory.Remove(itemToRemove_);
+        }
     }
 }
 
@@ -72,7 +76,13 @@ public class ArmorItemData : InventoryItemData
 
     public ArmorItemData(ArmourItemSO config)
     {
+        
         this.config = config;
+
+        this.flavourText = config.flavourText;
+        this.itemName = config.itemName;
+        this.icon = config.icon;
+        
         this.armorRating = config.armourRating;
         this.armorDuribility = config.armourDuribility;
         this.armorSlot = config.armorSlot;
