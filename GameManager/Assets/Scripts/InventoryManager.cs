@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
     public Dictionary<InventoryItemSO, InventoryItemData> playerInventory = new Dictionary<InventoryItemSO, InventoryItemData>();
     public InventoryItemSO[] tmp;
 
-    private void Start()
+    private void Awake()
     {
         foreach (InventoryItemSO item in tmp)
         {

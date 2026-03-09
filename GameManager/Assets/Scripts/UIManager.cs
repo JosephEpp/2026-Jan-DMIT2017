@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
-    private InputAction pauseAction;
-    public GameObject pauseMenu;
+    private InputAction pauseAction, inventoryAction;
+    public GameObject pauseMenu, inventoryMenu;
     public TextMeshProUGUI goldDisplay;
     public TextMeshProUGUI healthDisplay;
 
@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
 
         pauseAction = InputSystem.actions.FindAction("Pause");
         pauseAction.performed += Context => Pause();
+
+        inventoryAction = InputSystem.actions.FindAction("Inventory");
+        inventoryAction.performed += Context => Inventory();
     }
 
     // Update is called once per frame
@@ -48,6 +51,20 @@ public class UIManager : MonoBehaviour
         else
         {
             pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void Inventory()
+    {
+        if(inventoryMenu.activeSelf)
+        {
+            inventoryMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            inventoryMenu.SetActive(true);
             Time.timeScale = 0;
         }
     }

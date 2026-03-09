@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class InventoryContainer : MonoBehaviour
 {
-    public List<InventoryItemSO> StartingItems = new();
+    public List<InventoryItemSO> startingItems = new();
     public Dictionary<InventoryItemSO, InventoryItemData> containerContents = new Dictionary<InventoryItemSO, InventoryItemData>();
     public InventoryManager playerInventory;
+    public event Action<InventoryContainer> onContainerUpdated;
 
     void Start()
     {
-        foreach(InventoryItemSO item in StartingItems)
+        foreach(InventoryItemSO item in startingItems)
         {
             if(!containerContents.TryAdd(item, item.CreateRuntimeData()))
             {
@@ -29,6 +30,8 @@ public class InventoryContainer : MonoBehaviour
         {
             containerContents[itemToAdd_].quantity++;
         }
+
+        onContainerUpdated?.Invoke(this);
     }
 
     public void AddItemToPlayerInventory(InventoryItemSO itemToAdd_)
@@ -45,5 +48,7 @@ public class InventoryContainer : MonoBehaviour
 
         //Add item to player
         playerInventory.AddItem(itemToAdd_);
+
+        onContainerUpdated?.Invoke(this);
     }
 }
