@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerCombatController : MonoBehaviour
 {
     public InputAction attackInput;
+    private Vector2 attackDirection;
     public Transform attackSpawn;
     public GameObject attackPrefab;
 
@@ -21,7 +22,12 @@ public class PlayerCombatController : MonoBehaviour
     
     public void Attack(InputAction.CallbackContext context)
     {
-        Instantiate(attackPrefab, attackSpawn.position, Quaternion.identity);
+        GameObject obj = Instantiate(attackPrefab, attackSpawn.position, Quaternion.identity);
+        SimpleProjectile projectile = obj.GetComponent<SimpleProjectile>();
+
+        Vector2 projectileVelocity = attackInput.ReadValue<Vector2>();
+        projectileVelocity.Normalize();
+        projectile.InstantiateProjectile(-projectileVelocity, ATK);
     }
 
     public void TakeDamage(int dmg_)

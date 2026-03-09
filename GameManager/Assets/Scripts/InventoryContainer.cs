@@ -9,7 +9,7 @@ public class InventoryContainer : MonoBehaviour
     public InventoryManager playerInventory;
     public event Action<InventoryContainer> onContainerUpdated;
 
-    void Start()
+    private void Awake()
     {
         foreach(InventoryItemSO item in startingItems)
         {
