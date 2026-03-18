@@ -116,6 +116,9 @@ MonoBehaviour:
   attackDelay: 0.8
   sightline: {fileID: 2702628643722423111}
   attackRange: {fileID: 4483605701203122179}
+  dropLoot:
+  - {fileID: 11400000, guid: dd0a99ef56a44664e850952ecda68f72, type: 2}
+  - {fileID: 11400000, guid: d4a7199dfa5f7c142961c1b7347b8697, type: 2}
   patrolRange: {x: 5, y: 5}
   spriteRenderer: {fileID: 4625255142119396525}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}

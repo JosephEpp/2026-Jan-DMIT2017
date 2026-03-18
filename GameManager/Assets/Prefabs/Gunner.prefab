@@ -148,6 +148,9 @@ MonoBehaviour:
   attackDelay: 1
   sightline: {fileID: 2702628643722423111}
   attackRange: {fileID: 4483605701203122179}
+  dropLoot:
+  - {fileID: 11400000, guid: d9abc8f98db9c3a4d80aff48723e739f, type: 2}
+  - {fileID: 11400000, guid: 54229eb8fd0d08d4dbf92f2acfb46277, type: 2}
   patrolRange: {x: 5, y: 5}
   projectilePrefab: {fileID: 3949971408845401952, guid: ea9bde81e322dd54f97e93c298a239b0, type: 3}
   projectileSpawnLocation: {fileID: 5336321503783509788}

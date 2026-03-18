@@ -10,6 +10,7 @@ public class GameStateManager : MonoBehaviour
     private Spawner spawner;
     public MapState currentMapState;
     private PlayerCombatController player;
+    public InventoryManager inventoryManager;
 
     void Awake()
     {

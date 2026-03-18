@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AIMovement))]
@@ -14,6 +15,9 @@ public abstract class Enemy : MonoBehaviour
     [Header("Behavior Ranges")]
     public CircleOverlap sightline;
     public CircleOverlap attackRange;
+
+    [Header("Loot")]
+    public List<InventoryItemSO> dropLoot;
 
     protected Vector2 playerPosition;
     private Coroutine attackCoroutine;
@@ -31,6 +35,10 @@ public abstract class Enemy : MonoBehaviour
     [ContextMenu("Try Die")]
     public void Die()
     {
+        InventoryItemSO randomLoot = dropLoot[Random.Range(0, dropLoot.Count - 1)];
+
+        GameStateManager.instance.inventoryManager.AddItem(randomLoot);
+
         gameObject.SetActive(false);
     }
 

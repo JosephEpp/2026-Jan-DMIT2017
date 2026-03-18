@@ -11,6 +11,11 @@ public class InventoryContainer : MonoBehaviour
 
     private void Awake()
     {
+        if(playerInventory == null)
+        {
+            playerInventory = FindFirstObjectByType<InventoryManager>();
+        }
+
         foreach(InventoryItemSO item in startingItems)
         {
             if(!containerContents.TryAdd(item, item.CreateRuntimeData()))

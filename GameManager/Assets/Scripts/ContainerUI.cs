@@ -38,6 +38,8 @@ public class ContainerUI : MonoBehaviour
             containerButtons.Add(tmp);
             tmp.GetComponent<ContainerButton>().InitializeButton(item, container_, true);
         }
+        
+        container_.onContainerUpdated -= UpdateContainerUI;
         container_.onContainerUpdated += UpdateContainerUI;
     }
 

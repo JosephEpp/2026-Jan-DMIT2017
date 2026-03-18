@@ -4,10 +4,13 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
-    private InputAction pauseAction, inventoryAction;
-    public GameObject pauseMenu, inventoryMenu;
+    public InputAction pauseAction, inventoryAction, closeMenuAction;
+    public GameObject pauseMenu, inventoryMenu, containerMenu;
     public TextMeshProUGUI goldDisplay;
     public TextMeshProUGUI healthDisplay;
+
+    public InventoryUIManager inventoryUIManager;
+    public InventoryManager inventoryManager;
 
     private PlayerCombatController player;
     private int gold = 0;
@@ -18,11 +21,27 @@ public class UIManager : MonoBehaviour
     {
         player = FindFirstObjectByType<PlayerCombatController>();
 
-        pauseAction = InputSystem.actions.FindAction("Pause");
         pauseAction.performed += Context => Pause();
 
-        inventoryAction = InputSystem.actions.FindAction("Inventory");
         inventoryAction.performed += Context => Inventory();
+
+        closeMenuAction.performed += Context => CloseMenu();
+
+        inventoryUIManager.InitUI();
+    }
+
+    private void OnEnable()
+    {
+        pauseAction.Enable();
+        inventoryAction.Enable();
+        closeMenuAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        pauseAction.Disable();
+        inventoryAction.Disable();
+        closeMenuAction.Disable();
     }
 
     // Update is called once per frame
@@ -64,8 +83,30 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            inventoryUIManager.UpdateUI();
             inventoryMenu.SetActive(true);
             Time.timeScale = 0;
+        }
+    }
+
+    public void CloseMenu()
+    {
+        if(pauseMenu.activeSelf)
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+
+        if(inventoryMenu.activeSelf)
+        {
+            inventoryMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+
+        if(containerMenu.activeSelf)
+        {
+            containerMenu.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }

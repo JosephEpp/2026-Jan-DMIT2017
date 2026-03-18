@@ -29,8 +29,10 @@ public class ContainerButton : MonoBehaviour
         if (isContainerButton)
         {
             container.AddItemToPlayerInventory(inventoryData.config);
-            return;
         }
-        container.AddItemToContainer(inventoryData.config);
+        else
+        {
+            container.AddItemToContainer(inventoryData.config);
+        }
     }
 }
